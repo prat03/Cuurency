@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         print("button")
         let country = country.text ?? ""
         Utility.shared.getCountry(country: country)
-        
+        print("abcd")
     }
 }
 
