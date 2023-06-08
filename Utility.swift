@@ -72,6 +72,7 @@ struct Utility {
             return //CountryList.quotes
         }catch{
             print("parsing failed")
+            print("project")
         }
     }
 }
