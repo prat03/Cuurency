@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         fromCity.delegate = self
         toCity.delegate = self
         
-      
+      print("asd")
     }
 
 
