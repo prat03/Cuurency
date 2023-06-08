@@ -10,7 +10,7 @@
 		1CE670842A31AA840028DB2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE670832A31AA840028DB2B /* AppDelegate.swift */; };
 		1CE670862A31AA840028DB2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE670852A31AA840028DB2B /* SceneDelegate.swift */; };
 		1CE670882A31AA840028DB2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE670872A31AA840028DB2B /* ViewController.swift */; };
-		1CE6708B2A31AA840028DB2B /* leena.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CE670892A31AA840028DB2B /* leena.storyboard */; };
+		1CE6708B2A31AA840028DB2B /* giri.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CE670892A31AA840028DB2B /* giri.storyboard */; };
 		1CE6708E2A31AA840028DB2B /* CurrencyApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CE6708C2A31AA840028DB2B /* CurrencyApp.xcdatamodeld */; };
 		1CE670902A31AA850028DB2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE6708F2A31AA850028DB2B /* Assets.xcassets */; };
 		1CE670932A31AA850028DB2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CE670912A31AA850028DB2B /* LaunchScreen.storyboard */; };
@@ -21,7 +21,7 @@
 		1CE670832A31AA840028DB2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CE670852A31AA840028DB2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1CE670872A31AA840028DB2B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1CE6708A2A31AA840028DB2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/leena.storyboard; sourceTree = "<group>"; };
+		1CE6708A2A31AA840028DB2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/giri.storyboard; sourceTree = "<group>"; };
 		1CE6708D2A31AA840028DB2B /* CurrencyApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CurrencyApp.xcdatamodel; sourceTree = "<group>"; };
 		1CE6708F2A31AA850028DB2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CE670922A31AA850028DB2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 				1CE670832A31AA840028DB2B /* AppDelegate.swift */,
 				1CE670852A31AA840028DB2B /* SceneDelegate.swift */,
 				1CE670872A31AA840028DB2B /* ViewController.swift */,
-				1CE670892A31AA840028DB2B /* leena.storyboard */,
+				1CE670892A31AA840028DB2B /* giri.storyboard */,
 				1CE6708F2A31AA850028DB2B /* Assets.xcassets */,
 				1CE670912A31AA850028DB2B /* LaunchScreen.storyboard */,
 				1CE670942A31AA850028DB2B /* Info.plist */,
@@ -130,7 +130,7 @@
 			files = (
 				1CE670932A31AA850028DB2B /* LaunchScreen.storyboard in Resources */,
 				1CE670902A31AA850028DB2B /* Assets.xcassets in Resources */,
-				1CE6708B2A31AA840028DB2B /* leena.storyboard in Resources */,
+				1CE6708B2A31AA840028DB2B /* giri.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,12 +151,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1CE670892A31AA840028DB2B /* leena.storyboard */ = {
+		1CE670892A31AA840028DB2B /* giri.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1CE6708A2A31AA840028DB2B /* Base */,
 			);
-			name = leena.storyboard;
+			name = giri.storyboard;
 			sourceTree = "<group>";
 		};
 		1CE670912A31AA850028DB2B /* LaunchScreen.storyboard */ = {
