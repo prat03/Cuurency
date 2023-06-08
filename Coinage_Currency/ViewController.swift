@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         let country = country.text ?? ""
         Utility.shared.getCountry(country: country)
         print("abcd")
+        print("asdfgh")
     }
 }
 
