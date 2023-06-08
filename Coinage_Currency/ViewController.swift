@@ -26,6 +26,7 @@ class ViewController: UIViewController {
         Utility.shared.getCountry(country: country)
         print("abcd")
         print("asdfgh")
+        print("abcd")
     }
 }
 
