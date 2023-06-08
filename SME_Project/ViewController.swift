@@ -9,18 +9,59 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    var selectedCountry: String?
+    @IBOutlet weak var fromCity: UIPickerView!
+    
+    @IBOutlet weak var toCity: UIPickerView!
+    
+    let fromCityList = ["USD","EUR", "INR","USD","EUR", "INR","USD","EUR", "INR"]
+    let toCityList = ["USD","EUR", "INR"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print("final!!!")
+        fromCity.dataSource = self
+        toCity.dataSource = self
         
-//        let gradientLayer = CAGradientLayer()
-//        gradientLayer.frame = view.bounds
-//        gradientLayer.colors = [#colorLiteral(red: 0, green: 0.5725490196, blue: 0.2705882353, alpha: 1).cgColor, UIColor(red: 252/255, green: 238/255, blue: 33/255, alpha: 1).cgColor]
-//        gradientLayer.shouldRasterize = true
-//        backgroundGradientView.layer.addSublayer(gradientLayer)
+        fromCity.delegate = self
+        toCity.delegate = self
+        
+      print("asd")
     }
 
 
 }
 
+extension ViewController: UIPickerViewDataSource{
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == fromCity{
+            return fromCityList.count
+        }
+        else{
+            return toCityList.count
+        }
+    }
+    
+}
+
+extension ViewController: UIPickerViewDelegate{
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView == fromCity{
+            return fromCityList[row]
+        }
+        else{
+            return toCityList[row]
+        }
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedCountry = fromCityList[row]
+    }
+
+}
