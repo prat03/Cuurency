@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Coinage_Currency
+//  CurrencyApp
 //
-//  Created by Leena, Jayakumar (Contractor) on 07/06/23.
+//  Created by Leena, Jayakumar (Contractor) on 08/06/23.
 //
 
 import UIKit
