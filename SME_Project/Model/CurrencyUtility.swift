@@ -33,6 +33,7 @@ struct CurrencyUtility {
            
             //create task
             let task = session.dataTask(with: url) { convertdata, resp, err in
+               
                 if err == nil {
                     print("success: \(webUrl)")
                     if let sCode = (resp as? HTTPURLResponse)?.statusCode{
@@ -62,9 +63,9 @@ struct CurrencyUtility {
         guard let jResponse = jsonResponse else{
            return
         }
-
+        var countryInfo = [CountryInfo]()
         do{
-            let countryInfo = try JSONDecoder().decode(CountryInfo.self, from: jResponse)
+             countryInfo = try JSONDecoder().decode([CountryInfo].self, from: jResponse)
             print("decoding done")
             
         }

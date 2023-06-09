@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     let toCityList = ["USD","EUR", "INR"]
 //    let fromCurrency = base_code: String
 //    let toCurrency = target_code: String
-    var result : [CountryInfo] = []
+    var result = [CountryInfo]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,12 +110,12 @@ extension ViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ConvertTableCell
  
         let res = result[indexPath.row]
         
-        cell.textLabel?.text = "\(res.conversion_result)"
-        cell.detailTextLabel?.text = "\(res.conversion_rate)"
+        cell.currency_result.text = "\(res.conversion_result)"
+        cell.currency_rate.text = "\(res.conversion_rate)"
         
         return cell
     }
