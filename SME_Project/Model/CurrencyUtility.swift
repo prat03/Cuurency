@@ -9,7 +9,6 @@ import Foundation
 
 struct CurrencyUtility {
     
-    let apikey = "29b79ed48bf9639c1ee3fb4c"
     
     
     static var shared = CurrencyUtility()
