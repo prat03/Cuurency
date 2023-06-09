@@ -40,6 +40,7 @@ override func viewDidLoad() {
         if let isDouble = Double(getString){
             base_rate = isDouble
             fetchData()
+            print("asdf")
         }
     }
 }
