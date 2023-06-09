@@ -58,7 +58,6 @@
 			children = (
 				1CEEA16C2A31C47E00E8DC7F /* SME_Project.xcdatamodeld */,
 				1CEEA16F2A31C47F00E8DC7F /* Assets.xcassets */,
-				1CEEA1742A31C47F00E8DC7F /* Info.plist */,
 				1CEEA1632A31C47E00E8DC7F /* AppDelegate.swift */,
 				1CEEA1652A31C47E00E8DC7F /* SceneDelegate.swift */,
 			);
@@ -87,6 +86,7 @@
 				1CEEA17A2A31F38700E8DC7F /* Model */,
 				1CB484FD2A333973006A2590 /* View */,
 				1CB484FE2A3339E8006A2590 /* ViewModel */,
+				1CEEA1742A31C47F00E8DC7F /* Info.plist */,
 			);
 			path = SME_Project;
 			sourceTree = "<group>";

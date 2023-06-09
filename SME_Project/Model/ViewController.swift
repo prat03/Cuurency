@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var fromCountL: UILabel!
     
+    
     let fromCityList = ["USD","EUR", "INR","USD","EUR", "INR","USD","EUR", "INR"]
     let toCityList = ["USD","EUR", "INR"]
 //    let fromCurrency = base_code: String
