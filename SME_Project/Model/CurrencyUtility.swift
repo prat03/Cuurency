@@ -7,29 +7,41 @@
 
 import Foundation
 
+struct CountryInfo: Codable {
+    var conversion_result: Double
+    var conversion_rate: Double
+}
+
 struct CurrencyUtility {
     
-    
-    
+  
     static var shared = CurrencyUtility()
     private init(){
         
     }
     
-    func getConvertCurrency(){
-        let url = "https://v6.exchangerate-api.com/v6/29b79ed48bf9639c1ee3fb4c/latest/EUR"
+    func getConvertCurrency(amount: String, from: String, to: String, handler: @escaping ([CountryInfo]) -> Void){
         
-        if let tempUrl = URL(string: url){
-            let session = URLSession.shared
+        let webUrl = "https://v6.exchangerate-api.com/v6/29b79ed48bf9639c1ee3fb4c/pair/\(from)/\(to)/\(amount)"
+        
+        //Refernce of URL Session
+        let session = URLSession.shared
+        
+        //create request
+        if let url = URL(string: webUrl){
             
-            let task = session.dataTask(with: tempUrl) { convertdata, resp, err in
+           
+            //create task
+            let task = session.dataTask(with: url) { convertdata, resp, err in
                 if err == nil {
-                    
+                    print("success: \(webUrl)")
                     if let sCode = (resp as? HTTPURLResponse)?.statusCode{
                         switch sCode {
                         case 200...299:
                             print("success \(sCode)")
-                          //  parseData(convertdata)
+                            let countryInfo = parseData(jsonResponse: convertdata)
+                            handler([])
+                            
                         default:
                             print("failed")
                         }
@@ -46,5 +58,20 @@ struct CurrencyUtility {
                 print("invalid url")
             }
         }
+    func parseData(jsonResponse: Data?) {
+        guard let jResponse = jsonResponse else{
+           return
+        }
+
+        do{
+            let countryInfo = try JSONDecoder().decode(CountryInfo.self, from: jResponse)
+            print("decoding done")
+            
+        }
+        catch{
+            print("parsing failed: \(error.localizedDescription)")
+        }
+       
+    }
     }
 

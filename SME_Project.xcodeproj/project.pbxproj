@@ -43,6 +43,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CB484FD2A333973006A2590 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F1D945AF2A31C72C0047692A /* CurrencyRatesViewController.swift */,
+				1CEEA1692A31C47E00E8DC7F /* Main.storyboard */,
+				1CEEA1712A31C47F00E8DC7F /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1CB484FE2A3339E8006A2590 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1CEEA16C2A31C47E00E8DC7F /* SME_Project.xcdatamodeld */,
+				1CEEA16F2A31C47F00E8DC7F /* Assets.xcassets */,
+				1CEEA1742A31C47F00E8DC7F /* Info.plist */,
+				1CEEA1632A31C47E00E8DC7F /* AppDelegate.swift */,
+				1CEEA1652A31C47E00E8DC7F /* SceneDelegate.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		1CEEA1572A31C47E00E8DC7F = {
 			isa = PBXGroup;
 			children = (
@@ -63,15 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				1CEEA17A2A31F38700E8DC7F /* Model */,
-				1CEEA1632A31C47E00E8DC7F /* AppDelegate.swift */,
-				1CEEA1652A31C47E00E8DC7F /* SceneDelegate.swift */,
-				1CEEA1672A31C47E00E8DC7F /* ViewController.swift */,
-				1CEEA1692A31C47E00E8DC7F /* Main.storyboard */,
-				1CEEA16F2A31C47F00E8DC7F /* Assets.xcassets */,
-				1CEEA1712A31C47F00E8DC7F /* LaunchScreen.storyboard */,
-				1CEEA1742A31C47F00E8DC7F /* Info.plist */,
-				1CEEA16C2A31C47E00E8DC7F /* SME_Project.xcdatamodeld */,
-				F1D945AF2A31C72C0047692A /* CurrencyRatesViewController.swift */,
+				1CB484FD2A333973006A2590 /* View */,
+				1CB484FE2A3339E8006A2590 /* ViewModel */,
 			);
 			path = SME_Project;
 			sourceTree = "<group>";
@@ -79,6 +94,7 @@
 		1CEEA17A2A31F38700E8DC7F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1CEEA1672A31C47E00E8DC7F /* ViewController.swift */,
 				1CEEA17B2A31F3BF00E8DC7F /* CurrencyUtility.swift */,
 			);
 			path = Model;
