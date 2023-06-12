@@ -10,7 +10,10 @@ import UIKit
 class ViewController: UIViewController {
 
     
-    @IBOutlet weak var tbl: UITableView!
+    @IBOutlet weak var rateL: UILabel!
+    
+    @IBOutlet weak var outputL: UILabel!
+    
     
     @IBOutlet weak var fromCity: UIPickerView!
     
@@ -26,9 +29,8 @@ class ViewController: UIViewController {
     
     let fromCityList = ["USD","EUR", "INR","USD","EUR", "INR","USD","EUR", "INR"]
     let toCityList = ["USD","EUR", "INR"]
-//    let fromCurrency = base_code: String
-//    let toCurrency = target_code: String
-    var result = [CountryInfo]()
+
+    var result: CountryInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +41,6 @@ class ViewController: UIViewController {
         fromCity.delegate = self
         toCity.delegate = self
         
-        tbl.dataSource = self
-        
       print("asd")
     }
 
@@ -48,12 +48,14 @@ class ViewController: UIViewController {
         let code = amountT.text ?? ""
         let from = fromCountL.text ?? ""
         let to = toCountL.text ?? ""
+        
         if !code.isEmpty{
             print("get conversion for: \(code)")
-            CurrencyUtility.shared.getConvertCurrency(amount: code, from: from, to: to){ convertArray in
-                self.result = convertArray
+            CurrencyUtility.shared.getConvertCurrency(amount: code, from: from, to: to){ convert in
+                self.result = convert
                 DispatchQueue.main.sync{
-                    self.tbl.reloadData()
+                    self.outputL.text = "Converted Value: \(convert.conversion_result)"
+                    self.rateL.text = "Converted Rate: \(convert.conversion_rate)"
                 }
                 
             }
@@ -103,22 +105,4 @@ extension ViewController: UIPickerViewDelegate{
         }
     }
 
-}
-extension ViewController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return result.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ConvertTableCell
- 
-        let res = result[indexPath.row]
-        
-        cell.currency_result.text = "\(res.conversion_result)"
-        cell.currency_rate.text = "\(res.conversion_rate)"
-        
-        return cell
-    }
-    
-    
 }

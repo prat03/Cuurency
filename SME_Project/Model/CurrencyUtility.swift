@@ -20,7 +20,7 @@ struct CurrencyUtility {
         
     }
     
-    func getConvertCurrency(amount: String, from: String, to: String, handler: @escaping ([CountryInfo]) -> Void){
+    func getConvertCurrency(amount: String, from: String, to: String, handler: @escaping (CountryInfo) -> Void){
         
         let webUrl = "https://v6.exchangerate-api.com/v6/29b79ed48bf9639c1ee3fb4c/pair/\(from)/\(to)/\(amount)"
         
@@ -41,7 +41,7 @@ struct CurrencyUtility {
                         case 200...299:
                             print("success \(sCode)")
                             let countryInfo = parseData(jsonResponse: convertdata)
-                            handler([])
+                            handler(countryInfo!)
                             
                         default:
                             print("failed")
@@ -59,20 +59,20 @@ struct CurrencyUtility {
                 print("invalid url")
             }
         }
-    func parseData(jsonResponse: Data?) {
+    func parseData(jsonResponse: Data?) -> CountryInfo? {
         guard let jResponse = jsonResponse else{
-           return
+            return nil
         }
-        var countryInfo = [CountryInfo]()
+       // var countryInfo = [CountryInfo]()
         do{
-             countryInfo = try JSONDecoder().decode([CountryInfo].self, from: jResponse)
+            let countryInfo = try JSONDecoder().decode(CountryInfo.self, from: jResponse)
             print("decoding done")
-            
+            return countryInfo
         }
         catch{
             print("parsing failed: \(error.localizedDescription)")
         }
-       
+        return nil
     }
     }
 
