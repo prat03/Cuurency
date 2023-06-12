@@ -4,7 +4,7 @@
 //
 //  Created by Leena, Jayakumar (Contractor) on 08/06/23.
 //
-
+import UIKit
 import Foundation
 
 struct CountryInfo: Codable {
@@ -16,6 +16,7 @@ struct CurrencyUtility {
     
   
     static var shared = CurrencyUtility()
+    
     private init(){
         
     }

@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         fromCity.delegate = self
         toCity.delegate = self
         
-      print("asd")
+      print("\(NSHomeDirectory())")
     }
 
     @IBAction func exchangeB(_ sender: Any) {
@@ -56,6 +56,7 @@ class ViewController: UIViewController {
                 DispatchQueue.main.sync{
                     self.outputL.text = "Converted Value: \(convert.conversion_result)"
                     self.rateL.text = "Converted Rate: \(convert.conversion_rate)"
+                    Utility.shared.addData(amount: code, fromcount: from, toCount: to, conAmt: self.outputL.text ?? "", conRate: self.rateL.text ?? "")
                 }
                 
             }
@@ -63,6 +64,7 @@ class ViewController: UIViewController {
         else{
             print("enter valid number")
         }
+       
     }
     
 }
