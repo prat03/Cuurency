@@ -33,7 +33,7 @@ struct currencyutility{
                     if let sCode = (resp as? HTTPURLResponse)?.statusCode{
                         switch sCode{
                         case 200...299:
-                            print("Success")
+                            print("Success: \(tmbnew)")
                             let countryList = parseData(cData: countrydata)
                             handler(countryList)
                             
@@ -41,8 +41,7 @@ struct currencyutility{
                             print("Failed: \(sCode)")
                         }
                     }
-                    
-                }
+             }
                 else{
                     print("Network error")
                 }

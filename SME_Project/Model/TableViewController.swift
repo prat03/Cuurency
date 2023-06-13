@@ -13,6 +13,14 @@ class TableViewController: UIViewController {
     
     @IBOutlet weak var toL: UILabel!
     
+    
+    @IBOutlet weak var rateL: UILabel!
+    
+    @IBOutlet weak var outputL: UILabel!
+    
+    @IBOutlet weak var amountTF: UITextField!
+    
+    
     @IBOutlet weak var fromtbl: UITableView!
     
     @IBOutlet weak var totbl: UITableView!
@@ -20,6 +28,8 @@ class TableViewController: UIViewController {
     var countryList: [CountryDetails] = []
     var array: [String] = []
     var array2: [String] = []
+    
+    var result: CountryInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +41,7 @@ class TableViewController: UIViewController {
         fromtbl.delegate = self
         totbl.dataSource = self
         totbl.delegate = self
+        print("\(NSHomeDirectory())")
         
         currencyutility.shared.countries { countryResult in
             
@@ -53,6 +64,8 @@ class TableViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    
+    
     @IBAction func fromB(_ sender: Any) {
         if fromtbl.isHidden{
             animate(toggle: true)
@@ -71,6 +84,46 @@ class TableViewController: UIViewController {
             animate2(toggle1: false)
         }
     }
+    
+    
+    @IBAction func exchangeB(_ sender: Any) {
+        
+        let code = amountTF.text ?? ""
+        let from = fromL.text ?? ""
+        let to = toL.text ?? ""
+        
+        if !code.isEmpty{
+            print("get conversion for: \(code)")
+            CurrencyUtility.shared.getConvertCurrency(amount: code, from: from, to: to){ convert in
+                self.result = convert
+                DispatchQueue.main.sync{
+                    self.outputL.text = "\(convert.conversion_result)"
+                    self.rateL.text = "Converted Rate: \(convert.conversion_rate)"
+                    Utility.shared.addData(amount: code, fromcount: from, toCount: to, conAmt: self.outputL.text ?? "", conRate: self.rateL.text ?? "")
+                }
+                
+            }
+        }
+        else{
+            print("enter valid number")
+            showErrorAlert(title: "Error", msg: "Enter the number"){
+                
+            }
+            
+        }
+       
+    }
+    func showErrorAlert(title:String, msg: String, handler: @escaping () -> Void){
+        
+        let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alertVC.addAction(okAction)
+            
+            present(alertVC, animated: true)
+        }
+    
+    
     func animate(toggle: Bool){
         if toggle{
             UIView.animate(withDuration: 0.3){
@@ -109,7 +162,7 @@ extension TableViewController: UITableViewDataSource{
         if tableView == fromtbl{
             let cell = tableView.dequeueReusableCell(withIdentifier: "fromcell", for: indexPath) as! FromTableViewCell
             
-            let fromcountry = array.sorted()[indexPath.row]
+            let fromcountry = array[indexPath.row]
             let fromcode = array2.sorted()[indexPath.row]
             
             //cell.code.text = "\(code)"
@@ -120,7 +173,7 @@ extension TableViewController: UITableViewDataSource{
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "tocell", for: indexPath) as! ToTableViewCell
             
-            let tocountry = array.sorted()[indexPath.row]
+            let tocountry = array[indexPath.row]
             let tocode = array2.sorted()[indexPath.row]
             
             //cell.code.text = "\(code)"

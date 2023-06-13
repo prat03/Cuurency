@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     let fromCityList = ["USD","EUR", "INR","USD","EUR", "INR","USD","EUR", "INR"]
     let toCityList = ["USD","EUR", "INR"]
 
-    var result: CountryInfo?
+   // var result: CountryInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,30 +41,30 @@ class ViewController: UIViewController {
         fromCity.delegate = self
         toCity.delegate = self
         
-      print("\(NSHomeDirectory())")
+//      print("\(NSHomeDirectory())")
     }
 
     @IBAction func exchangeB(_ sender: Any) {
-        let code = amountT.text ?? ""
-        let from = fromCountL.text ?? ""
-        let to = toCountL.text ?? ""
-        
-        if !code.isEmpty{
-            print("get conversion for: \(code)")
-            CurrencyUtility.shared.getConvertCurrency(amount: code, from: from, to: to){ convert in
-                self.result = convert
-                DispatchQueue.main.sync{
-                    self.outputL.text = "\(convert.conversion_result)"
-                    self.rateL.text = "Converted Rate: \(convert.conversion_rate)"
-                    Utility.shared.addData(amount: code, fromcount: from, toCount: to, conAmt: self.outputL.text ?? "", conRate: self.rateL.text ?? "")
-                }
-                
-            }
-        }
-        else{
-            print("enter valid number")
-        }
-       
+//        let code = amountT.text ?? ""
+//        let from = fromCountL.text ?? ""
+//        let to = toCountL.text ?? ""
+//        
+//        if !code.isEmpty{
+//            print("get conversion for: \(code)")
+//            CurrencyUtility.shared.getConvertCurrency(amount: code, from: from, to: to){ convert in
+//                self.result = convert
+//                DispatchQueue.main.sync{
+//                    self.outputL.text = "\(convert.conversion_result)"
+//                    self.rateL.text = "Converted Rate: \(convert.conversion_rate)"
+//                    Utility.shared.addData(amount: code, fromcount: from, toCount: to, conAmt: self.outputL.text ?? "", conRate: self.rateL.text ?? "")
+//                }
+//                
+//            }
+//        }
+//        else{
+//            print("enter valid number")
+//        }
+//       
     }
     
 }
