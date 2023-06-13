@@ -54,7 +54,7 @@ class ViewController: UIViewController {
             CurrencyUtility.shared.getConvertCurrency(amount: code, from: from, to: to){ convert in
                 self.result = convert
                 DispatchQueue.main.sync{
-                    self.outputL.text = "Converted Value: \(convert.conversion_result)"
+                    self.outputL.text = "\(convert.conversion_result)"
                     self.rateL.text = "Converted Rate: \(convert.conversion_rate)"
                     Utility.shared.addData(amount: code, fromcount: from, toCount: to, conAmt: self.outputL.text ?? "", conRate: self.rateL.text ?? "")
                 }
