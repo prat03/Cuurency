@@ -360,10 +360,10 @@
             </objects>
             <point key="canvasLocation" x="4436" y="524"/>
         </scene>
-        <!--View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="t1R-EG-xV4">
             <objects>
-                <viewController id="p7B-It-eow" sceneMemberID="viewController">
+                <viewController id="p7B-It-eow" customClass="TableViewController" customModule="SME_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oRp-Y0-QkF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -452,24 +452,30 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="KgO-C1-4Yq">
-                                                        <rect key="frame" x="0.0" y="37.5" width="341" height="34.5"/>
+                                                        <rect key="frame" x="0.0" y="37.5" width="341" height="34"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9h-V4-NEB">
-                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="34.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="34"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="filled" image="arrowtriangle.down.circle.fill" catalog="system" imagePlacement="trailing" title="From         "/>
+                                                                <connections>
+                                                                    <action selector="fromB:" destination="p7B-It-eow" eventType="touchUpInside" id="y1M-9P-Bi7"/>
+                                                                </connections>
                                                             </button>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="repeat" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="78f-K2-hxF">
-                                                                <rect key="frame" x="146" y="1.5" width="32" height="31.5"/>
+                                                                <rect key="frame" x="146" y="1.5" width="32" height="31"/>
                                                                 <color key="tintColor" systemColor="labelColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="32" id="uK3-k3-wfo"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCJ-j0-jXG" userLabel="To">
-                                                                <rect key="frame" x="196" y="0.0" width="145" height="34.5"/>
+                                                                <rect key="frame" x="196" y="0.0" width="145" height="34"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="filled" image="arrowtriangle.down.circle.fill" catalog="system" imagePlacement="trailing" title="To               "/>
+                                                                <connections>
+                                                                    <action selector="toB:" destination="p7B-It-eow" eventType="touchUpInside" id="Yhw-E8-ZMK"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -477,16 +483,16 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="lastBaseline" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="hU9-Z2-T0Z">
-                                                        <rect key="frame" x="0.0" y="89" width="341" height="261"/>
+                                                        <rect key="frame" x="0.0" y="88.5" width="341" height="261.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Iud-Su-5hs">
-                                                                <rect key="frame" x="0.0" y="0.0" width="147" height="261"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="147" height="261.5"/>
                                                                 <subviews>
                                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Quh-T2-pjq">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="147" height="261"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="147" height="261.5"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <prototypes>
-                                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="fromcell" textLabel="M36-Py-9LL" detailTextLabel="q4X-PC-zGO" style="IBUITableViewCellStyleValue1" id="emp-dN-EYX" customClass="FromTableViewCell" customModule="CurrencyConversion" customModuleProvider="target">
+                                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="fromcell" textLabel="M36-Py-9LL" detailTextLabel="q4X-PC-zGO" style="IBUITableViewCellStyleValue1" id="emp-dN-EYX" customClass="FromTableViewCell" customModule="SME_Project" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="50" width="147" height="43.5"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="emp-dN-EYX" id="sxP-ep-xrj">
@@ -510,8 +516,8 @@
                                                                                     </subviews>
                                                                                 </tableViewCellContentView>
                                                                                 <connections>
-                                                                                    <outlet property="code" destination="M36-Py-9LL" id="viA-S7-hev"/>
-                                                                                    <outlet property="country" destination="q4X-PC-zGO" id="k4s-ZF-cdO"/>
+                                                                                    <outlet property="code" destination="M36-Py-9LL" id="bCR-I4-s4Y"/>
+                                                                                    <outlet property="country" destination="q4X-PC-zGO" id="YWY-s1-8tc"/>
                                                                                 </connections>
                                                                             </tableViewCell>
                                                                         </prototypes>
@@ -519,13 +525,13 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hfb-Db-Rid">
-                                                                <rect key="frame" x="185" y="0.0" width="156" height="261"/>
+                                                                <rect key="frame" x="185" y="0.0" width="156" height="261.5"/>
                                                                 <subviews>
                                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tut-ZX-6tV">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="156" height="261"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="156" height="261.5"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <prototypes>
-                                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tocell" textLabel="vUW-XS-aCF" detailTextLabel="OS1-ZJ-Hna" style="IBUITableViewCellStyleValue1" id="RlD-b1-mqg" customClass="ToTableViewCell" customModule="CurrencyConversion" customModuleProvider="target">
+                                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tocell" textLabel="vUW-XS-aCF" detailTextLabel="OS1-ZJ-Hna" style="IBUITableViewCellStyleValue1" id="RlD-b1-mqg" customClass="ToTableViewCell" customModule="SME_Project" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="50" width="156" height="43.5"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RlD-b1-mqg" id="eRJ-Dw-Aj1">
@@ -549,8 +555,8 @@
                                                                                     </subviews>
                                                                                 </tableViewCellContentView>
                                                                                 <connections>
-                                                                                    <outlet property="tocode" destination="vUW-XS-aCF" id="XTK-tw-gd9"/>
-                                                                                    <outlet property="tocountry" destination="OS1-ZJ-Hna" id="v8O-ik-N6z"/>
+                                                                                    <outlet property="tocode" destination="vUW-XS-aCF" id="kZh-lG-hUF"/>
+                                                                                    <outlet property="tocountry" destination="OS1-ZJ-Hna" id="U4S-jj-PNg"/>
                                                                                 </connections>
                                                                             </tableViewCell>
                                                                         </prototypes>
@@ -607,6 +613,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="fromL" destination="dNo-aL-CEk" id="kku-CT-xU7"/>
+                        <outlet property="fromtbl" destination="Quh-T2-pjq" id="yMD-6t-aUe"/>
+                        <outlet property="toL" destination="hGw-cH-Coq" id="3v4-w2-2s6"/>
+                        <outlet property="totbl" destination="tut-ZX-6tV" id="gfO-8M-ju1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JtY-Ow-TFE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
