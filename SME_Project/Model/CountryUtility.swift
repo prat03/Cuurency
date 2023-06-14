@@ -45,6 +45,7 @@ struct currencyutility{
                 else{
                     print("Network error")
                 }
+                
             }
             task.resume()
         }

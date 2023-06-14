@@ -179,6 +179,7 @@ extension TableViewController: UITableViewDataSource{
             //cell.code.text = "\(code)"
             cell.tocountry.text = "\(tocountry)"
             cell.tocode.text = "\(tocode)"
+            CountryServerUtility.shared.addCountryCode(country: tocountry, code: tocode)
             return cell
         }
     }
