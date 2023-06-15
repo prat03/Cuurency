@@ -26,4 +26,15 @@ struct CountryServerUtility{
         }
         
     }
+    func getAllData() -> [CountryCodes]{
+        let dataReq = CountryCodes.fetchRequest()
+        do{
+            let result = try dBContext.fetch(dataReq)
+           return result
+        }
+        catch{
+            return []
+        }
+        
+    }
 }
