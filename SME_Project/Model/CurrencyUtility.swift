@@ -51,7 +51,9 @@ struct CurrencyUtility {
                     }
                 }
                     else{
-                        print("request failed") //ALERT
+                        print("request failed")
+                        
+                        //ALERT
                     }
                 }
                 task.resume()

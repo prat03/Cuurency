@@ -20,7 +20,7 @@ struct CountryServerUtility{
         
         do{
             try dBContext.save()
-            print("datas added..\(country)")
+            print("datas added..\(country), \(code)")
         }catch{
             print("data not added: \(error.localizedDescription)")
         }
