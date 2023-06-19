@@ -295,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfc-E8-vUK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3531.884057971015" y="541.74107142857144"/>
+            <point key="canvasLocation" x="3548" y="531"/>
         </scene>
         <!--Currency Rates View Controller-->
         <scene sceneID="fsU-hS-2it">
@@ -363,7 +363,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kg1-PF-RDM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4436" y="524"/>
+            <point key="canvasLocation" x="4438" y="530"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="t1R-EG-xV4">
@@ -656,7 +656,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2t-qq-KeZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3455.072463768116" y="-191.51785714285714"/>
+            <point key="canvasLocation" x="3548" y="-192"/>
         </scene>
     </scenes>
     <resources>

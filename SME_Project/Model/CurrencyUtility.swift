@@ -7,6 +7,7 @@
 import UIKit
 import Foundation
 
+
 struct CountryInfo: Codable {
     var conversion_result: Double
     var conversion_rate: Double
@@ -46,6 +47,9 @@ struct CurrencyUtility {
                             
                         default:
                             print("failed")
+                            showError2Alert(title: "enter the country", msg: "network error"){
+                                
+                            }
                         }
                         
                     }
@@ -53,6 +57,9 @@ struct CurrencyUtility {
                     else{
                         print("request failed")
                         
+                        showError2Alert(title: "no network", msg: "network error"){
+                            
+                        }
                         //ALERT
                     }
                 }
@@ -62,6 +69,16 @@ struct CurrencyUtility {
                 print("invalid url")
             }
         }
+    func showError2Alert(title:String, msg: String, handler: @escaping () -> Void){
+        
+        let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alertVC.addAction(okAction)
+        
+       // present(alertVC, animated: true)
+    }
+    
     func parseData(jsonResponse: Data?) -> CountryInfo? {
         guard let jResponse = jsonResponse else{
             return nil
