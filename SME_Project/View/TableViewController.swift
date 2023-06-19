@@ -120,6 +120,15 @@ class TableViewController: UIViewController {
         }
        
     }
+    func showErrorAlert(title:String, msg: String, handler: @escaping () -> Void){
+        
+        let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alertVC.addAction(okAction)
+        
+        present(alertVC, animated: true)
+    }
     
     
     

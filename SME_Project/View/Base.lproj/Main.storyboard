@@ -368,7 +368,7 @@
         <!--Table View Controller-->
         <scene sceneID="t1R-EG-xV4">
             <objects>
-                <viewController id="p7B-It-eow" customClass="TableViewController" customModule="SME_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tableVC" id="p7B-It-eow" customClass="TableViewController" customModule="SME_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oRp-Y0-QkF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
