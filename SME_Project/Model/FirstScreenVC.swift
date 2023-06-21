@@ -34,7 +34,10 @@ class FirstScreenVC: UIViewController {
     @IBOutlet weak var totbl: UITableView!
     
     @IBOutlet weak var fromsearch: UISearchBar!
-
+    
+    
+    @IBOutlet weak var progressAI: UIActivityIndicatorView!
+    
     @IBOutlet weak var tosearch: UISearchBar!
     
     var countryList: [CountryDetails] = []
@@ -54,6 +57,8 @@ class FirstScreenVC: UIViewController {
       table = CountryServerUtility.shared.getAllData()
         fromtbl.isHidden = true
         totbl.isHidden = true
+        
+        progressAI.isHidden = true
         
         fromsearch.isHidden = true
         tosearch.isHidden = true
@@ -78,8 +83,8 @@ class FirstScreenVC: UIViewController {
 //                self.fromtbl.reloadData()
 //                self.totbl.reloadData()
 //            }
-
-        //}
+//
+//        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -109,6 +114,8 @@ class FirstScreenVC: UIViewController {
     
     
     @IBAction func exchangeB(_ sender: Any) {
+        self.progressAI.isHidden = false
+        progressAI.startAnimating()
         
         let code = amountTF.text ?? ""
         let from = fromL.text ?? ""
@@ -120,6 +127,8 @@ class FirstScreenVC: UIViewController {
             CurrencyUtility.shared.getConvertCurrency(amount: code, from: from, to: to){ convert in
                 self.result = convert
                 DispatchQueue.main.sync{
+                    self.progressAI.stopAnimating()
+                    self.progressAI.isHidden = true
                     self.outputL.text = "\(convert.conversion_result)"
                     self.rateL.text = "Converted Rate: \(convert.conversion_rate)"
                     self.outputCodeL.text = "\(to):"
