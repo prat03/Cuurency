@@ -114,7 +114,7 @@ class TableViewController: UIViewController {
         let to = toL.text ?? ""
         
         
-        if !code.isEmpty{
+        if !code.isEmpty && (from.count == 3) && (to.count == 3){
             print("get conversion for: \(code)")
             CurrencyUtility.shared.getConvertCurrency(amount: code, from: from, to: to){ convert in
                 self.result = convert
@@ -129,7 +129,7 @@ class TableViewController: UIViewController {
         }
         else{
             print("enter valid number")
-        showErrorAlert(title: "Error", msg: "Enter the number"){
+        showErrorAlert(title: "Error", msg: "Enter all the details"){
                 self.amountTF.addMotionEffect(UIMotionEffect())
             }
             
