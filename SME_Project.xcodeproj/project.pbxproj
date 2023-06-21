@@ -20,6 +20,9 @@
 		1CEEA1702A31C47F00E8DC7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CEEA16F2A31C47F00E8DC7F /* Assets.xcassets */; };
 		1CEEA1732A31C47F00E8DC7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CEEA1712A31C47F00E8DC7F /* LaunchScreen.storyboard */; };
 		1CEEA17C2A31F3BF00E8DC7F /* CurrencyUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEEA17B2A31F3BF00E8DC7F /* CurrencyUtility.swift */; };
+		1CF456752A42BE170029FB4A /* FirstScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF456742A42BE170029FB4A /* FirstScreenVC.swift */; };
+		1CF456772A42C1270029FB4A /* FromCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF456762A42C1270029FB4A /* FromCell.swift */; };
+		1CF456792A42C1460029FB4A /* ToCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF456782A42C1460029FB4A /* ToCell.swift */; };
 		F178F3512A3883E700003B99 /* FromTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F178F3502A3883E700003B99 /* FromTableViewCell.swift */; };
 		F178F3532A3883F300003B99 /* ToTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F178F3522A3883F300003B99 /* ToTableViewCell.swift */; };
 		F178F3552A3884A000003B99 /* CountryUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F178F3542A3884A000003B99 /* CountryUtility.swift */; };
@@ -43,6 +46,9 @@
 		1CEEA1722A31C47F00E8DC7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CEEA1742A31C47F00E8DC7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CEEA17B2A31F3BF00E8DC7F /* CurrencyUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUtility.swift; sourceTree = "<group>"; };
+		1CF456742A42BE170029FB4A /* FirstScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenVC.swift; sourceTree = "<group>"; };
+		1CF456762A42C1270029FB4A /* FromCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromCell.swift; sourceTree = "<group>"; };
+		1CF456782A42C1460029FB4A /* ToCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToCell.swift; sourceTree = "<group>"; };
 		F178F3502A3883E700003B99 /* FromTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromTableViewCell.swift; sourceTree = "<group>"; };
 		F178F3522A3883F300003B99 /* ToTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToTableViewCell.swift; sourceTree = "<group>"; };
 		F178F3542A3884A000003B99 /* CountryUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryUtility.swift; sourceTree = "<group>"; };
@@ -65,10 +71,10 @@
 			isa = PBXGroup;
 			children = (
 				1C3C45A62A3867ED00187EE7 /* HistoryVC.swift */,
-				F178F3562A3884C000003B99 /* TableViewController.swift */,
 				1CEEA1672A31C47E00E8DC7F /* ViewController.swift */,
 				F1D945AF2A31C72C0047692A /* CurrencyRatesViewController.swift */,
 				1CEEA1692A31C47E00E8DC7F /* Main.storyboard */,
+				1CF456782A42C1460029FB4A /* ToCell.swift */,
 				1CEEA1712A31C47F00E8DC7F /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -106,6 +112,9 @@
 				1CB484FD2A333973006A2590 /* View */,
 				1CB484FE2A3339E8006A2590 /* ViewModel */,
 				1CEEA1742A31C47F00E8DC7F /* Info.plist */,
+				F178F3562A3884C000003B99 /* TableViewController.swift */,
+				F178F3502A3883E700003B99 /* FromTableViewCell.swift */,
+				F178F3522A3883F300003B99 /* ToTableViewCell.swift */,
 			);
 			path = SME_Project;
 			sourceTree = "<group>";
@@ -113,11 +122,11 @@
 		1CEEA17A2A31F38700E8DC7F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1CF456742A42BE170029FB4A /* FirstScreenVC.swift */,
+				1CF456762A42C1270029FB4A /* FromCell.swift */,
 				1CEEA1632A31C47E00E8DC7F /* AppDelegate.swift */,
 				1CEEA1652A31C47E00E8DC7F /* SceneDelegate.swift */,
 				1CEEA16F2A31C47F00E8DC7F /* Assets.xcassets */,
-				F178F3502A3883E700003B99 /* FromTableViewCell.swift */,
-				F178F3522A3883F300003B99 /* ToTableViewCell.swift */,
 				1C3C45A82A38682900187EE7 /* HistoryCell.swift */,
 				1CEEA17B2A31F3BF00E8DC7F /* CurrencyUtility.swift */,
 				F178F3542A3884A000003B99 /* CountryUtility.swift */,
@@ -209,8 +218,11 @@
 				F178F3512A3883E700003B99 /* FromTableViewCell.swift in Sources */,
 				1CEEA17C2A31F3BF00E8DC7F /* CurrencyUtility.swift in Sources */,
 				1C3C45A72A3867ED00187EE7 /* HistoryVC.swift in Sources */,
+				1CF456752A42BE170029FB4A /* FirstScreenVC.swift in Sources */,
 				1CEEA1662A31C47E00E8DC7F /* SceneDelegate.swift in Sources */,
 				1C6DF0312A397B570034E503 /* CountryServerUtility.swift in Sources */,
+				1CF456792A42C1460029FB4A /* ToCell.swift in Sources */,
+				1CF456772A42C1270029FB4A /* FromCell.swift in Sources */,
 				1CEEA16E2A31C47E00E8DC7F /* SME_Project.xcdatamodeld in Sources */,
 				F178F3552A3884A000003B99 /* CountryUtility.swift in Sources */,
 			);

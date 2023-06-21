@@ -7,7 +7,7 @@
 import UIKit
 import Foundation
 
-extension TableViewController{
+
     struct CountryInfo: Codable {
         var conversion_result: Double
         var conversion_rate: Double
@@ -89,4 +89,4 @@ extension TableViewController{
     }
     
     
-}
+
