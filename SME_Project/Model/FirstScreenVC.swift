@@ -51,7 +51,7 @@ class FirstScreenVC: UIViewController {
         fromsearch.delegate = self
         tosearch.delegate = self
         
-        table = CountryServerUtility.shared.getAllData()
+      table = CountryServerUtility.shared.getAllData()
         fromtbl.isHidden = true
         totbl.isHidden = true
         
@@ -78,8 +78,8 @@ class FirstScreenVC: UIViewController {
 //                self.fromtbl.reloadData()
 //                self.totbl.reloadData()
 //            }
-//
-//        }
+
+        //}
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -192,9 +192,9 @@ extension FirstScreenVC: UITableViewDataSource{
         if tableView == fromtbl{
             let cell = tableView.dequeueReusableCell(withIdentifier: "fromcell", for: indexPath) as! FromCell
             
-            let fromcountry = table[indexPath.row]
-           // let fromcode = array2.sorted()[indexPath.row]
-            
+          let fromcountry = table[indexPath.row]
+//            let fromcode = array2.sorted()[indexPath.row]
+//
 //            cell.country.text = "\(fromcountry)"
 //            cell.code.text = "\(fromcode)"
             cell.country.text = fromcountry.countries
@@ -205,13 +205,13 @@ extension FirstScreenVC: UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "tocell", for: indexPath) as! ToCell
 
             let tocountry = table[indexPath.row]
-            //let tocode = array2.sorted()[indexPath.row]
-            
+//            let tocode = array2.sorted()[indexPath.row]
+//
 //            cell.tocountry.text = "\(tocountry)"
 //            cell.tocode.text = "\(tocode)"
             cell.tocountry.text = tocountry.countries
             cell.tocode.text = tocountry.code
-           //CountryServerUtility.shared.addCountryCode(country: tocountry, code: tocode)
+         //  CountryServerUtility.shared.addCountryCode(country: tocountry, code: tocode)
             return cell
         }
     }
@@ -225,12 +225,12 @@ extension FirstScreenVC: UITableViewDelegate{
         
         if tableView == fromtbl{
             fromL.text = fromcountry.code
-//            fromL.text = array2[indexPath.row]
+            //fromL.text = array2[indexPath.row]
             animate(toggle: false)
         }
         else{
             toL.text = fromcountry.code
-           // toL.text = "\(array2[indexPath.row])"
+            //toL.text = "\(array2[indexPath.row])"
             animate2(toggle1: false)
         }
         
