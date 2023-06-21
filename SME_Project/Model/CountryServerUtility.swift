@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 struct CountryServerUtility{
     static var shared = CountryServerUtility()
     let dBContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext

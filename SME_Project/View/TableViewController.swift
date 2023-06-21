@@ -6,10 +6,13 @@
 //
 import Foundation
 import UIKit
+import CoreData
 
 class TableViewController: UIViewController {
     
+    
     var table: [CountryCodes] = []
+   
 
     @IBOutlet weak var fromL: UILabel!
     
@@ -29,18 +32,30 @@ class TableViewController: UIViewController {
     
     @IBOutlet weak var totbl: UITableView!
     
+    @IBOutlet weak var fromsearch: UISearchBar!
+
+    @IBOutlet weak var tosearch: UISearchBar!
+    
     var countryList: [CountryDetails] = []
     var array: [String] = []
     var array2: [String] = []
     
     var result: CountryInfo?
     
+    var searchFC = [CountryCodes]()
+    var searchTC = [CountryCodes]()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        fromsearch.delegate = self
+        tosearch.delegate = self
+        
         table = CountryServerUtility.shared.getAllData()
         fromtbl.isHidden = true
         totbl.isHidden = true
+        
+        fromsearch.isHidden = true
+        tosearch.isHidden = true
         
         fromtbl.dataSource = self
         fromtbl.delegate = self
@@ -68,6 +83,7 @@ class TableViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+ 
     
     
     
@@ -136,10 +152,12 @@ class TableViewController: UIViewController {
         if toggle{
             UIView.animate(withDuration: 0.3){
                 self.fromtbl.isHidden = false
+               // self.fromsearch.isHidden = false
             }
         }else{
             UIView.animate(withDuration: 0.3){
                 self.fromtbl.isHidden = true
+              //  self.fromsearch.isHidden = true
             }
         }
     }
@@ -147,10 +165,13 @@ class TableViewController: UIViewController {
         if toggle1{
             UIView.animate(withDuration: 0.3){
                 self.totbl.isHidden = false
+              //  self.tosearch.isHidden = false
+                
             }
         }else{
             UIView.animate(withDuration: 0.3){
                 self.totbl.isHidden = true
+              //  self.tosearch.isHidden = true
             }
         }
     }
@@ -216,3 +237,10 @@ extension TableViewController: UITableViewDelegate{
     
 }
 
+extension TableViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar == fromsearch{
+            
+        }
+    }
+}
