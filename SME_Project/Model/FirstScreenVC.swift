@@ -138,10 +138,12 @@ class FirstScreenVC: UIViewController {
             }
         }
         else{
+            
             print("enter valid number")
         showErrorAlert(title: "Error", msg: "Enter all the details"){
-                self.amountTF.addMotionEffect(UIMotionEffect())
+            
             }
+            
             
         }
        
@@ -151,11 +153,22 @@ class FirstScreenVC: UIViewController {
         let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "OK", style: .default)
+        
         alertVC.addAction(okAction)
         
         present(alertVC, animated: true)
+        self.progressAI.stopAnimating()
+        self.progressAI.isHidden = true
     }
-    
+//    func showErrorAction(title:String, msg: String, handler: @escaping () -> Void){
+//
+//        let action = UIAlertController(title: title, message: msg, preferredStyle: .actionSheet)
+//
+//        let okAction = UIAlertAction(title: "OK", style: .default)
+//        action.addAction(okAction)
+//
+//        present(action, animated: true)
+//    }
     
     
     func animate(toggle: Bool){

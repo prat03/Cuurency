@@ -6,7 +6,7 @@
 //
 import UIKit
 import Foundation
-
+import Network
 
     struct CountryInfo: Codable {
         var conversion_result: Double
@@ -47,9 +47,9 @@ import Foundation
                                 
                             default:
                                 print("failed")
-                                //                            showErrorAlert(title: "enter the country", msg: "network error"){
-                                //
-                                //                            }
+                                    showErrorAlert(title: "enter the country", msg: "network error"){
+                                
+                                    }
                             }
                             
                         }
@@ -75,7 +75,6 @@ import Foundation
             guard let jResponse = jsonResponse else{
                 return nil
             }
-            // var countryInfo = [CountryInfo]()
             do{
                 let countryInfo = try JSONDecoder().decode(CountryInfo.self, from: jResponse)
                 print("decoding done")
@@ -85,6 +84,15 @@ import Foundation
                 print("parsing failed: \(error.localizedDescription)")
             }
             return nil
+        }
+        func showErrorAlert(title:String, msg: String, handler: @escaping () -> Void){
+            
+            let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alertVC.addAction(okAction)
+            
+            //present(alertVC, animated: true)
         }
     }
     
