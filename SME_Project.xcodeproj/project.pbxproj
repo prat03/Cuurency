@@ -10,7 +10,6 @@
 		1C3C45A72A3867ED00187EE7 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3C45A62A3867ED00187EE7 /* HistoryVC.swift */; };
 		1C3C45A92A38682900187EE7 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3C45A82A38682900187EE7 /* HistoryCell.swift */; };
 		1C6DF0312A397B570034E503 /* CountryServerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6DF0302A397B570034E503 /* CountryServerUtility.swift */; };
-		1C8A726C2A4167D700BDFABB /* Sme2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C8A726A2A4167D700BDFABB /* Sme2.storyboard */; };
 		1C97F6022A3730F6006C0EEC /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C97F6012A3730F6006C0EEC /* Utility.swift */; };
 		1CEEA1642A31C47E00E8DC7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEEA1632A31C47E00E8DC7F /* AppDelegate.swift */; };
 		1CEEA1662A31C47E00E8DC7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEEA1652A31C47E00E8DC7F /* SceneDelegate.swift */; };
@@ -34,7 +33,6 @@
 		1C3C45A62A3867ED00187EE7 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		1C3C45A82A38682900187EE7 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		1C6DF0302A397B570034E503 /* CountryServerUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryServerUtility.swift; sourceTree = "<group>"; };
-		1C8A726B2A4167D700BDFABB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SME_Project/View/Base.lproj/Sme2.storyboard; sourceTree = "<group>"; };
 		1C97F6012A3730F6006C0EEC /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		1CEEA1602A31C47E00E8DC7F /* SME_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SME_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CEEA1632A31C47E00E8DC7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 		1CEEA1572A31C47E00E8DC7F = {
 			isa = PBXGroup;
 			children = (
-				1C8A726A2A4167D700BDFABB /* Sme2.storyboard */,
 				1CEEA1622A31C47E00E8DC7F /* SME_Project */,
 				1CEEA1612A31C47E00E8DC7F /* Products */,
 			);
@@ -195,7 +192,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CEEA1732A31C47F00E8DC7F /* LaunchScreen.storyboard in Resources */,
-				1C8A726C2A4167D700BDFABB /* Sme2.storyboard in Resources */,
 				1CEEA1702A31C47F00E8DC7F /* Assets.xcassets in Resources */,
 				1CEEA16B2A31C47E00E8DC7F /* Main.storyboard in Resources */,
 			);
@@ -231,14 +227,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1C8A726A2A4167D700BDFABB /* Sme2.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1C8A726B2A4167D700BDFABB /* Base */,
-			);
-			name = Sme2.storyboard;
-			sourceTree = "<group>";
-		};
 		1CEEA1692A31C47E00E8DC7F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
