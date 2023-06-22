@@ -238,10 +238,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="7aL-Xk-tYS">
-                                <rect key="frame" x="16" y="88" width="379" height="774"/>
+                                <rect key="frame" x="16" y="88" width="375" height="774"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Lt-SJ-hPl">
-                                        <rect key="frame" x="12" y="27" width="359" height="685"/>
+                                        <rect key="frame" x="8" y="27" width="359" height="685"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="Currency Converter" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veh-wu-FTn">
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="55"/>
@@ -496,7 +496,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="mDg-nZ-jNd" firstAttribute="trailing" secondItem="1Lt-SJ-hPl" secondAttribute="trailing" constant="8" id="HxG-el-ZS9"/>
-                                    <constraint firstItem="1Lt-SJ-hPl" firstAttribute="leading" secondItem="mDg-nZ-jNd" secondAttribute="leading" constant="12" id="fgP-Bo-iT3"/>
+                                    <constraint firstItem="1Lt-SJ-hPl" firstAttribute="leading" secondItem="mDg-nZ-jNd" secondAttribute="leading" constant="8" id="fgP-Bo-iT3"/>
                                     <constraint firstAttribute="bottom" secondItem="1Lt-SJ-hPl" secondAttribute="bottom" constant="141" id="qxF-So-afO"/>
                                     <constraint firstItem="1Lt-SJ-hPl" firstAttribute="trailing" secondItem="7aL-Xk-tYS" secondAttribute="trailingMargin" id="rPn-wO-2IJ"/>
                                     <constraint firstItem="1Lt-SJ-hPl" firstAttribute="top" secondItem="7aL-Xk-tYS" secondAttribute="topMargin" constant="19" id="rXD-kl-SxX"/>
