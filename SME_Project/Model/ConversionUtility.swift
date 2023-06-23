@@ -13,10 +13,10 @@ import Network
         var conversion_rate: Double
     }
     
-    struct CurrencyUtility {
+    struct ConversionUtility {
         
         
-        static var shared = CurrencyUtility()
+        static var shared = ConversionUtility()
         
         private init(){
             

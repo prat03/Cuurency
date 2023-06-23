@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 import CoreData
 
-struct Utility{
-    static var shared = Utility()
+struct HistoryUtility{
+    static var shared = HistoryUtility()
     let dbContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private init(){
     }

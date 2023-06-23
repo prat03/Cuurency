@@ -12,7 +12,7 @@ struct currencyRates: Decodable{
     let conversion_rates: [String: Double]
 }
 
-class CurrencyRatesViewController: UIViewController {
+class RateConversion: UIViewController {
     
     @IBOutlet weak var currencyTF: UITextField!
     
@@ -67,7 +67,7 @@ func fetchData(){
       
 }
 
-extension CurrencyRatesViewController: UITableViewDataSource{
+extension RateConversion: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let currencyFetched = usd{
             return currencyFetched.conversion_rates.count

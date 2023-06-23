@@ -44,34 +44,39 @@ class FirstScreenVC: UIViewController {
     @IBOutlet weak var tosearch: UISearchBar!
     
     var countryList: [CountryDetails] = []
-    var array: [String] = []
-    var array2: [String] = []
-    
+    var array: [String] = [] //api to tableview save for country
+    var array2: [String] = [] // api to tableview save for code
     var result: CountryInfo?
     
-   // var searchFC = [CountryCodes]()
-//    var searchTC = [CountryCodes]()
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.fromsearch.delegate = self
         self.tosearch.delegate = self
         
-      table = CountryServerUtility.shared.getAllData()
-        fromtbl.isHidden = true
-        totbl.isHidden = true
+        table = CountryServerUtility.shared.getAllData()  // api to coredata country n code
         
+        
+        //activity indicator
         progressAI.isHidden = true
         
+        //searchbar
         fromsearch.isHidden = true
         tosearch.isHidden = true
+        
+        //tableview
+        fromtbl.isHidden = true
+        totbl.isHidden = true
         
         fromtbl.dataSource = self
         fromtbl.delegate = self
         totbl.dataSource = self
         totbl.delegate = self
-        print("\(NSHomeDirectory())")
         
+        print("\(NSHomeDirectory())") //home
+        
+        //api to tableview
 //        currencyutility.shared.countries { countryResult in
 //
 //            self.countryList = countryResult
@@ -93,9 +98,7 @@ class FirstScreenVC: UIViewController {
         super.didReceiveMemoryWarning()
     }
  
-    
-    
-    
+    //Button animate
     @IBAction func fromB(_ sender: Any) {
         if fromtbl.isHidden{
             animate(toggle: true)
@@ -114,65 +117,6 @@ class FirstScreenVC: UIViewController {
             animate2(toggle1: false)
         }
     }
-    
-    
-    @IBAction func exchangeB(_ sender: Any) {
-        self.progressAI.isHidden = false
-        progressAI.startAnimating()
-        
-        let code = amountTF.text ?? ""
-        let from = fromL.text ?? ""
-        let to = toL.text ?? ""
-        
-        
-        if !code.isEmpty && (from.count == 3) && (to.count == 3){
-            print("get conversion for: \(code)")
-            CurrencyUtility.shared.getConvertCurrency(amount: code, from: from, to: to){ convert in
-                self.result = convert
-                DispatchQueue.main.sync{
-                    self.progressAI.stopAnimating()
-                    self.progressAI.isHidden = true
-                    self.outputL.text = "\(convert.conversion_result)"
-                    self.rateL.text = "Converted Rate: \(convert.conversion_rate)"
-                    self.outputCodeL.text = "\(to):"
-                    Utility.shared.addData(amount: code, fromcount: from, toCount: to, conAmt: self.outputL.text ?? "", conRate: self.rateL.text ?? "")
-                }
-                
-            }
-        }
-        else{
-            
-            print("enter valid number")
-        showErrorAlert(title: "Error", msg: "Enter all the details"){
-            
-            }
-            
-            
-        }
-       
-    }
-    func showErrorAlert(title:String, msg: String, handler: @escaping () -> Void){
-        
-        let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        
-        alertVC.addAction(okAction)
-        
-        present(alertVC, animated: true)
-        self.progressAI.stopAnimating()
-        self.progressAI.isHidden = true
-    }
-//    func showErrorAction(title:String, msg: String, handler: @escaping () -> Void){
-//
-//        let action = UIAlertController(title: title, message: msg, preferredStyle: .actionSheet)
-//
-//        let okAction = UIAlertAction(title: "OK", style: .default)
-//        action.addAction(okAction)
-//
-//        present(action, animated: true)
-//    }
-    
     
     func animate(toggle: Bool){
         if toggle{
@@ -201,6 +145,60 @@ class FirstScreenVC: UIViewController {
             }
         }
     }
+    
+    // convert button
+    @IBAction func exchangeB(_ sender: Any) {
+        //activity indicator
+        self.progressAI.isHidden = false
+        progressAI.startAnimating()
+        // conversion
+        let number = amountTF.text ?? ""
+        let from = fromL.text ?? ""
+        let to = toL.text ?? ""
+        
+        // Error
+        if !number.isEmpty && (from.count == 3) && (to.count == 3){
+            print("get conversion for: \(number)")
+            ConversionUtility.shared.getConvertCurrency(amount: number, from: from, to: to){ convert in
+                self.result = convert //get
+                DispatchQueue.main.sync{
+                    self.progressAI.stopAnimating()
+                    self.progressAI.isHidden = true
+                    self.outputL.text = "\(convert.conversion_result)"
+                    self.rateL.text = "Converted Rate: \(convert.conversion_rate)"
+                    self.outputCodeL.text = "\(to):"
+                    HistoryUtility.shared.addData(amount: number, fromcount: from, toCount: to, conAmt: self.outputL.text ?? "", conRate: self.rateL.text ?? "") //save
+                }
+                
+            }
+        }
+        else{
+            
+            print("enter valid number")
+        showErrorAlert(title: "Error", msg: "Enter all the details"){
+            
+            }
+            
+            
+        }
+       
+    }
+    
+    func showErrorAlert(title:String, msg: String, handler: @escaping () -> Void){
+        
+        let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        
+        alertVC.addAction(okAction)
+        
+        present(alertVC, animated: true)
+        self.progressAI.stopAnimating()
+        self.progressAI.isHidden = true
+    }
+
+    
+  
 }
 
 extension FirstScreenVC: UITableViewDataSource{
@@ -237,6 +235,7 @@ extension FirstScreenVC: UITableViewDataSource{
                 cell.country.text = fromcountry.countries
                 cell.code.text = fromcountry.code
             }
+            //api fetch
 //            let fromcode = array2.sorted()[indexPath.row]
 //            cell.country.text = "\(fromcountry)"
 //            cell.code.text = "\(fromcode)"
@@ -255,10 +254,12 @@ extension FirstScreenVC: UITableViewDataSource{
                 cell.tocode.text = tocountry.code
             }
             
+            // api fetch
 //            let tocode = array2.sorted()[indexPath.row]
-//
+            //cell.tocountry.text = "\(tocountry)"
+            //cell.tocode.text = "\(tocode)"
 
-            
+            // api fetch
          //  CountryServerUtility.shared.addCountryCode(country: tocountry, code: tocode)
             return cell
         }
@@ -268,7 +269,7 @@ extension FirstScreenVC: UITableViewDataSource{
 extension FirstScreenVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        let fromcountry = table[indexPath.row]
+       // let fromcountry = table[indexPath.row]
        
         
         if tableView == fromtbl{

@@ -14,7 +14,7 @@ class HistoryVC: UIViewController {
     @IBOutlet weak var hisTbl: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        history = Utility.shared.getAllData()
+        history = HistoryUtility.shared.getAllData()
         hisTbl.dataSource = self
         hisTbl.delegate = self
         // Do any additional setup after loading the view.
@@ -59,7 +59,7 @@ extension HistoryVC: UITableViewDelegate{
         let deleteaction = UIContextualAction(style: .destructive, title: "Delete"){ _, _, _ in
             
             let dataToDelete = self.history[indexPath.row]
-            Utility.shared.del(data: dataToDelete)
+            HistoryUtility.shared.del(data: dataToDelete)
             self.history.remove(at: indexPath.row)
             self.hisTbl.reloadData()
             print("deleting")
