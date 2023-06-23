@@ -13,7 +13,10 @@ class FirstScreenVC: UIViewController {
     
     
     var table: [CountryCodes] = []
-   
+    var searchedF: [CountryCodes] = []
+    var searchedT: [CountryCodes] = []
+   var searchingF = false
+    var searchingT = false
 
     @IBOutlet weak var fromL: UILabel!
     
@@ -46,13 +49,13 @@ class FirstScreenVC: UIViewController {
     
     var result: CountryInfo?
     
-    var searchFC = [CountryCodes]()
-    var searchTC = [CountryCodes]()
+   // var searchFC = [CountryCodes]()
+//    var searchTC = [CountryCodes]()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        fromsearch.delegate = self
-        tosearch.delegate = self
+        self.fromsearch.delegate = self
+        self.tosearch.delegate = self
         
       table = CountryServerUtility.shared.getAllData()
         fromtbl.isHidden = true
@@ -203,10 +206,20 @@ class FirstScreenVC: UIViewController {
 extension FirstScreenVC: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == totbl{
-            return table.count
+            if searchingT{
+                return searchedT.count
+            }
+            else{
+                return table.count
+            }
         }else{
-            
-            return table.count
+            if searchingF{
+                return searchedF.count
+            }
+            else{
+                return table.count
+            }
+        
         }
     }
     
@@ -215,24 +228,37 @@ extension FirstScreenVC: UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "fromcell", for: indexPath) as! FromCell
             
           let fromcountry = table[indexPath.row]
+            
+            if searchingF{
+                cell.country.text = searchedF[indexPath.row].countries
+            cell.code.text = searchedF[indexPath.row].code
+            }
+            else{
+                cell.country.text = fromcountry.countries
+                cell.code.text = fromcountry.code
+            }
 //            let fromcode = array2.sorted()[indexPath.row]
-//
 //            cell.country.text = "\(fromcountry)"
 //            cell.code.text = "\(fromcode)"
-            cell.country.text = fromcountry.countries
-        cell.code.text = fromcountry.code
             return cell
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "tocell", for: indexPath) as! ToCell
 
             let tocountry = table[indexPath.row]
+            if searchingT{
+                cell.tocountry.text = searchedT[indexPath.row].countries
+                cell.tocode.text = searchedT[indexPath.row].code
+            }
+            else{
+                cell.tocountry.text = tocountry.countries
+                cell.tocode.text = tocountry.code
+            }
+            
 //            let tocode = array2.sorted()[indexPath.row]
 //
-//            cell.tocountry.text = "\(tocountry)"
-//            cell.tocode.text = "\(tocode)"
-            cell.tocountry.text = tocountry.countries
-            cell.tocode.text = tocountry.code
+
+            
          //  CountryServerUtility.shared.addCountryCode(country: tocountry, code: tocode)
             return cell
         }
@@ -246,24 +272,59 @@ extension FirstScreenVC: UITableViewDelegate{
        
         
         if tableView == fromtbl{
-            fromL.text = fromcountry.code
-            //fromL.text = array2[indexPath.row]
-            animate(toggle: false)
+//            fromL.text = fromcountry.code
+//            //fromL.text = array2[indexPath.row]
+//            animate(toggle: false)
+            
+            if searchingF{
+                let selectedCountry = searchedF[indexPath.row]
+                fromL.text = searchedF[indexPath.row].code
+                //fromL.text = array2[indexPath.row]
+                animate(toggle: false)
+                print(selectedCountry)
+            }else{
+                let selectedCountry = table[indexPath.row]
+                print(selectedCountry)
+            }
+            self.fromsearch.searchTextField.endEditing(true)
         }
+        
         else{
-            toL.text = fromcountry.code
-            //toL.text = "\(array2[indexPath.row])"
-            animate2(toggle1: false)
+//            toL.text = fromcountry.code
+//            //toL.text = "\(array2[indexPath.row])"
+//            animate2(toggle1: false)
+            if searchingT{
+                let selectedCountry = searchedT[indexPath.row]
+                toL.text = searchedT[indexPath.row].code
+                            //toL.text = "\(array2[indexPath.row])"
+                animate2(toggle1: false)
+                print(selectedCountry)
+            }else{
+                let selectedCountry = table[indexPath.row]
+                print(selectedCountry)
+            }
+            self.tosearch.searchTextField.endEditing(true)
+        }
+            
         }
         
     }
     
-}
 
 extension FirstScreenVC: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar == fromsearch{
-            
+            searchedF =  table.filter{ $0.countries?.lowercased().prefix(searchText.count) ?? "" == searchText.lowercased()}
+            searchingF = true
+            print("searching")
+            fromtbl.reloadData()
+        }
+        else{
+            searchedT =  table.filter{ $0.countries?.lowercased().prefix(searchText.count) ?? "" == searchText.lowercased()}
+            searchingT = true
+            print("searching")
+            totbl.reloadData()
         }
     }
+    
 }

@@ -68,6 +68,7 @@
 		1CB484FD2A333973006A2590 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1CF456742A42BE170029FB4A /* FirstScreenVC.swift */,
 				1C3C45A62A3867ED00187EE7 /* HistoryVC.swift */,
 				1CEEA1672A31C47E00E8DC7F /* ViewController.swift */,
 				F1D945AF2A31C72C0047692A /* CurrencyRatesViewController.swift */,
@@ -119,7 +120,6 @@
 		1CEEA17A2A31F38700E8DC7F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1CF456742A42BE170029FB4A /* FirstScreenVC.swift */,
 				1CF456762A42C1270029FB4A /* FromCell.swift */,
 				1CEEA1632A31C47E00E8DC7F /* AppDelegate.swift */,
 				1CEEA1652A31C47E00E8DC7F /* SceneDelegate.swift */,
