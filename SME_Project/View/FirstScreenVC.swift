@@ -2,7 +2,6 @@
 //  FirstScreenVCViewController.swift
 //  SME_Project
 //
-//  Created by Leena, Jayakumar (Contractor) on 21/06/23.
 //
 
 import Foundation
