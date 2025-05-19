@@ -2,8 +2,6 @@
 //  CurrencyRatesViewController.swift
 //  SME_Project
 //
-//  Created by V, Giriprasath (Contractor) on 08/06/23.
-//
 
 import UIKit
 
